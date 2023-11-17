@@ -1,18 +1,14 @@
-# ADA 2023 Project — Team statsquad3
+# ADA 2023 Project — Team statsquad3 — "Objectivity through the emotional lens: How does the sentiment of Wikispeedia articles affect player game paths?"
 
 ## Abstract:
 
 We believe Wikispeedia mirrors the way we consume content in 2023. Today, information comes to us continuously through mass notifications, endless scrolling, and mindless digital consumption. Therefore, information that sticks is information that shocks. We think Wikispeedia hides this same idea, but transposed and expressed through the game paths. We hypothesise that players use paths not only semantically meaningful, but also sentimentally powerful.
 
-Our project consists of analysing game paths through the lens of sentiment analysis scores of wikipedia page contents. First, we present various methods for assigning a sentiment scores to each Wikispeedia article (this milestone). Second, we aim to determine if this sentiment (whether it is there intentionally or not) influences how people play the game. In order to do this, we aim to leverage the research in [1], which presents a method for obtaining semantic similarities between articles, allowing us to characterise a game path.
+Our project consists of analysing game paths through the lens of sentiment analysis scores of wikipedia page contents. First, we present various methods for assigning a sentiment scores to each Wikispeedia article (this milestone). Second, we aim to determine if this sentiment (whether it is there intentionally or not) influences how people play the game.
 
 This could provide new insights into decision-making in textual environments. Understanding how sentiments embedded in digital content affect user choices could be pivotal in comprehending our broader engagement with the internet and digital platforms.
 
 ___
-
-## Main research question
-
-"How does the sentiment of Wikispeedia articles affect player game paths?"
 
 #### Some subquestions we aim to answer:
 1. Does the sentiment of the starting article influence the trajectory of the game path? For instance, if a player begins with an article with a negative tone, are they more likely to navigate through similarly toned articles?
@@ -24,28 +20,24 @@ ___
 
 ## Methods:
 ### Sentiment Analysis
-The first step of our analysis is to find a reliable method to perform sentiment analysis of the given Wikispeedia articles. This step is crucial for obtaining interpretable results in the next parts. Each member of our group tackled a different method for sentiment analysis, and we tested these methods over a sample of articles that we labeled. Here's a brief overview of each method:
+The first step of our analysis is to find a reliable method to perform sentiment analysis of the given Wikispeedia articles. This step is crucial for obtaining interpretable results in the next parts. Each member of our group tackled a different method for sentiment analysis, and we tested these methods over a sample of articles that we labeled. Here are the different methods (details are provided in the main notebook):
 
-- Word Lexicon Method: using a positive and negative score for each word in a lexicon, the individual token scores are summed for each article.
-
-- Pattern Method: Pattern is a python package that leverages a sentiment dictionary to score each word on polarity and subjectivity. Polarity (emotional direction (positive or negative)) and subjectivity (strength of emotion) are particularly interesting in the case of wikipedia.
-
-- VADER (Valence Aware Dictionary and sEntiment Reasoner): VADER is a lexicon and rule-based sentiment analysis tool specifically designed for social media content. It is sensitive to both the polarity (positive/negative) and intensity (strength) of emotions. This method uses a sentiment lexicon which is a list of lexical features, like words, that are generally labeled with their sentiment intensity. It is known for its effectiveness in handling social media texts and other domains where expressions are less formal and more emotionally varied​​​​​​.
-
-- RoBERTa (A Robustly Optimised BERT Pre-training Approach): RoBERTa is a large language model (Meta Research), which is trained on a vast corpus of data for self-supervised natural language processing. It performs binary sentiment analysis, categorising text as either positive or negative. RoBERTa has been fine-tuned on millions of tweets, making it suitable to detect sentiment.
-
-- LIWC (Linguistic Inquiry and Word Count): LIWC counts words in psychologically meaningful categories. This method is particularly adept at showing attentional focus, emotionality, social relationships, thinking styles, and individual differences in texts​​​​​​.
+- Word Lexicon
+- Pattern
+- VADER
+- LIWC
+- RoBERTa
 
 ### Sentiment Scoring on whole data
 Inferring the sentiment on the whole data can help us visualise better these scores and refine the answers to our research questions. At this stage we aim to select one scoring method and use it for the remainder of the project. (see questions below)
 
 ### Sentiment Trajectory and Pattern Analysis for each subquestion: (each number corresponds to the subquestion above)
-1. 
-2.
-3.
-4.
-5.
-6.
+1. For each path, the score of the starting article is compared to the other articles scores. Check if most articles are in the same range of the starting article (for example with root article with sentiment 0.74, then are most following articles in [0.64,0.84]?)
+2. This question is perhaps the one that will require the most creativity in visualisation, or path representation. We could use a dense embedding of the paths to derive some results for this question.
+3. Several logic patterns could be manually created (for instance: starting positive then consistently going to negative) and compared to the real paths. A possible framework is: given a pattern, normalise by the size, compute the MSE over the path, if the error is below a certain threshold, then the path fits the pattern.
+4. In all paths, check the extremes (|s|>0.8 for instance), look at the following and previous article scores, then we can say it is oscillating if previous or subsequent article is also extreme. The percentage of extreme articles followed/preceded by extreme articles could answer the question.
+5. Derive a sentiment extremeness score ($|s|$ for instance) and the rest is similar as above.
+6. We perform some clustering on the articles by their content (perhaps using another language model). Then it suffices to describe and analyse the distribution of the scores in each cluster, perhaps perform some hypothesis testing.
 
 ## Additional dataset:
 
