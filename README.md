@@ -55,13 +55,15 @@ There are no direct additional datasets. The only external datasets we use are t
 
 Week 1: sentiment scoring of the whole dataset with different methods, visualisations will help us determine what method to keep.
 
-Week 2: split tasks across research sub-questions (see above), make visualisations to see which questions are the most interesting
+Week 2: split tasks across research sub-questions (see above), make visualisations to see which questions are the most interesting, give
+a strong causal conclusion to each research question.
 
 Week 3: Detailed sentiment trajectory and pattern analysis for the interesting sub questions. We'll delve into the sentiment data aligned with game paths, examining the influence of sentiments. We will try to make statistical models to answer specific questions.
+Predictive models can be made to help generating the user path for a random pair of articles.
 
 Week 4: Devise a data story from the analyses such that it is aligned with our statistical findings. Begin the webpage.
 
-Week 5: Cleaning the repository and wrapping up the data story webpage.
+Week 5: Cleaning the repository and wrapping up the data story webpage, host cohesive and interactive visualisations to display our outcome.
 
 ## Questions for TA
 Should we select one sentiment scoring method or consistently compare the methods through all the analyses?
