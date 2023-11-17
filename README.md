@@ -1,3 +1,5 @@
+Note: the main notebook is ```main.ipynb```.
+
 # ADA 2023 Project — Team statsquad3 — "Objectivity through the emotional lens: How does the sentiment of Wikispeedia articles affect player game paths?"
 
 ## Abstract:
