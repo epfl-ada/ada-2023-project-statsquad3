@@ -7,7 +7,7 @@ def read_pickle(headers):
 
     df=pd.DataFrame(columns=headers)
 
-    with (open('./sentiments.pickle', "rb")) as openfile:
+    with (open('./tmp/sentiments.pickle', "rb")) as openfile:
         list1=list(pickle.load(openfile).items())
     
     for t in list1:

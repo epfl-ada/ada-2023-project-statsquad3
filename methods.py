@@ -30,7 +30,6 @@ def method1_2(pos,neg):
 
     return final_score
 
-
 #-----------------------------------------------
 # Methods for path analysis
 
