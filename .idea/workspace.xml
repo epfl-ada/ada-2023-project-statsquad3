@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0f4a2299-8609-4b44-a6d1-bd3e7d65a9f9" name="Changes" comment="" />
+    <list default="true" id="0f4a2299-8609-4b44-a6d1-bd3e7d65a9f9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subquestion4.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/subquestion4.ipynb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "renyi/initial__pipeline",
-    "last_opened_file_path": "C:/repo/2023",
+    "last_opened_file_path": "C:/repo/ada-2023-homework-2-statsquad3",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -56,6 +59,7 @@
       <updated>1702595157619</updated>
       <workItem from="1702595159338" duration="14098000" />
       <workItem from="1702612328071" duration="1687000" />
+      <workItem from="1702844473922" duration="8122000" />
     </task>
     <servers />
   </component>
