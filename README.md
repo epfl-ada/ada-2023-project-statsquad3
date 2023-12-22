@@ -55,5 +55,5 @@ In general, we split the tasks among the different research subquestions and sen
 
 - Alexandre: sentiment analysis method 1 (word lexicon), research subquestion 4
 
-- Brando: sentiment analysis method 5 (RoBERTa), research subquestion 5
+- Brando: sentiment analysis method 5 (RoBERTa), research subquestion 2
 
