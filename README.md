@@ -1,4 +1,5 @@
-Note: the main notebook is ```main.ipynb```.
+The main notebook is ```main.ipynb```.<br>
+Data story link: https://yrymax.github.io/ada-project-statsquad3/.
 
 # ADA 2023 Project — Team statsquad3 — "Objectivity through the emotional lens: How does the sentiment of Wikispeedia articles affect player game paths?"
 
@@ -6,7 +7,7 @@ Note: the main notebook is ```main.ipynb```.
 
 We believe Wikispeedia mirrors the way we consume content in 2023. Today, information comes to us continuously through mass notifications, endless scrolling, and mindless digital consumption. Therefore, information that sticks is information that shocks. We think Wikispeedia hides this same idea, but transposed and expressed through the game paths. We hypothesise that players use paths not only semantically meaningful, but also sentimentally powerful.
 
-Our project consists of analysing game paths through the lens of sentiment analysis scores of wikipedia page contents. First, we present various methods for assigning a sentiment scores to each Wikispeedia article (this milestone). Second, we aim to determine if this sentiment (whether it is there intentionally or not) influences how people play the game.
+Our project consists of analysing game paths through the lens of sentiment analysis scores of wikipedia page contents. In a first part, we presented various methods for assigning a sentiment scores to each Wikispeedia article (milestone P2). In a second part, we explore and analyse how and if this sentiment (whether it is there intentionally or not) influences how people play the game (this milestone).
 
 This could provide new insights into decision-making in textual environments. Understanding how sentiments embedded in digital content affect user choices could be pivotal in comprehending our broader engagement with the internet and digital platforms.
 
@@ -14,15 +15,14 @@ ___
 
 #### Some subquestions we aim to answer:
 1. Does the sentiment of the starting article influence the trajectory of the game path? For instance, if a player begins with an article with a negative tone, are they more likely to navigate through similarly toned articles?
-2. How do neutral-toned articles fit into the path structure? Are they more likely to be used as transitional nodes between positive and negative articles?
-3. Can we observe any consistent emotional arcs in the paths (e.g., starting positive, dipping into negative, and then ending positively)?
-4. Are there noticeable patterns of sentiment oscillation in the paths chosen by players? For instance, do players often navigate through contrasting sentiments to reach their target, such as starting from an article with a negative tone like “Hell” to reach a positive one like “Paradise”?
-5. How does the sentiment score of a target topic affect the structure and nature of the path chosen by players? Is there a relationship between the extremity of a target article's sentiment (highly positive/negative) and the length of the path taken to reach it? When players choose shorter paths, are these paths characterized by articles with, for example, more extreme sentiment scores?
-6. Are certain categories or themes within Wikipedia consistently associated with similar sentiment scores? For example, do topics like fruits generally have a positive tone, while others might trend towards neutrality or negativity? 
+2. Can we observe any consistent emotional arcs in the paths (e.g., starting positive, dipping into negative, and then ending positively)?
+3. Are there noticeable patterns of sentiment oscillation in the paths chosen by players? For instance, do players often navigate through contrasting sentiments to reach their target, such as starting from an article with a negative tone like “Hell” to reach a positive one like “Paradise”?
+4. How does the sentiment score of a target topic affect the structure of the path chosen by players? Is there a relationship between the extremity of a target article's sentiment (highly positive/negative) and the length of the path taken to reach it? When players choose shorter paths, are these paths characterized by articles with, for example, more extreme sentiment scores?
+5. Are certain categories or themes within Wikipedia consistently associated with similar sentiment scores? For example, do topics like fruits generally have a positive tone, while others might trend towards neutrality or negativity? 
 
 ## Methods:
 ### Sentiment Analysis
-The first step of our analysis is to find a reliable method to perform sentiment analysis of the given Wikispeedia articles. This step is crucial for obtaining interpretable results in the next parts. Each member of our group tackled a different method for sentiment analysis, and we tested these methods over a sample of articles that we labeled. Here are the different methods (details are provided in the main notebook):
+In the first step of our analysis, we explored various methods to perform sentiment analysis of the given Wikispeedia articles. This step was crucial for obtaining interpretable and reliable results in the next part. Each member of our group tackled a different method for sentiment analysis, and we tested these methods over a sample of articles that we labeled. Here are the different methods (details are provided in the notebook ```main_milestone_2.ipynb```):
 
 - Word Lexicon
 - Pattern
@@ -30,35 +30,30 @@ The first step of our analysis is to find a reliable method to perform sentiment
 - LIWC
 - RoBERTa
 
-### Sentiment Scoring on whole data
-Inferring the sentiment on the whole data can help us visualise better these scores and refine the answers to our research questions. At this stage we aim to select one scoring method and use it for the remainder of the project. (see questions below)
+After this stage, we decided to select the RoBERTa method for inferring the articles' sentiment scores. It gave the best results on our small, manually labelled test set, and had the benefit of giving an interesting, "separable" distribution of the scores among articles (see notebooks).
 
 ### Sentiment Trajectory and Pattern Analysis for each subquestion: (each number corresponds to the subquestion above)
-1. For each path, the score of the starting article is compared to the other articles scores. Check if most articles are in the same range of the starting article (for example with root article with sentiment 0.74, then are most following articles in [0.64,0.84]?)
-2. This question is perhaps the one that will require the most creativity in visualisation, or path representation. We could use a dense embedding of the paths to derive some results for this question.
-3. Several logic patterns could be manually created (for instance: starting positive then consistently going to negative) and compared to the real paths. A possible framework is: given a pattern, normalise by the size, compute the MSE over the path, if the error is below a certain threshold, then the path fits the pattern.
-4. In all paths, check the extremes (|s|>0.8 for instance), look at the following and previous article scores, then we can say it is oscillating if previous or subsequent article is also extreme. The percentage of extreme articles followed/preceded by extreme articles could answer the question.
-5. Derive a sentiment extremeness score ($|s|$ for instance) and the rest is similar as above.
-6. We perform some clustering on the articles by their content (perhaps using another language model). Then it suffices to describe and analyse the distribution of the scores in each cluster, perhaps perform some hypothesis testing.
+1. To determine the possible effect of the starting article on the paths score, both the positivity and the negativity of the paths are analysed. For this, the distributions of the positive/negative percentage of the paths are compared with man-whithney tests to deduct their independance (or not).
+2. Several logic patterns could be manually created (for instance: starting positive then consistently going to negative) and compared to the real paths. A possible framework is: given a pattern, normalise by the size, compute the MSE over the path, if the error is below a certain threshold, then the path fits the pattern.
+3. To determine whether users' paths exhibit noticable oscillation, we performed a significance test on the distribution of user-selected links versus the original network links. Additionally, we conducted regression analyses on various models to identify factors that influence path oscillation.
+4. To analyse the effect of the target article's sentiment on the game structure, we perform a causal analysis by making a tool for viewing paths, and performing regression analysis to determine the significance of our observations.
+5. It is known that Wikipedia articles cover a wide range of topics, and sentiment within these articles of the same topic can be consistent with the subject matter. To investigate how sentiment is prominent within a topic, we utilised the topic data from categories.tsv dataset and studied the sentiment score of these extracted topics at different level of generality.
 
 ## Additional dataset:
 
 There are no direct additional datasets. The only external datasets we use are the lexicons used by some of the sentiment analysis tools. 
 
-## Timeline and organisation:
+## Organisation and contribution of each member:
 
-Week 1: sentiment scoring of the whole dataset with different methods, visualisations will help us determine what method to keep.
+In general, we split the tasks among the different research subquestions and sentiment analysis methods. Everyone contributed to the visualizations and descriptions of their own sections in the data story website, and overall everyone contributed to delineating a story out of our individual findings to make it a smooth story.
 
-Week 2: split tasks across research sub-questions (see above), make visualisations to see which questions are the most interesting, give
-a strong causal conclusion to each research question.
+- Minh: sentiment analysis method 3 (VADER), research subquestion 5
 
-Week 3: Detailed sentiment trajectory and pattern analysis for the interesting sub questions. We'll delve into the sentiment data aligned with game paths, examining the influence of sentiments. We will try to make statistical models to answer specific questions.
-Predictive models can be made to help generating the user path for a random pair of articles.
+- Arnaud: sentiment analysis method 4 (LIWC), research subquestion 1
 
-Week 4: Devise a data story from the analyses such that it is aligned with our statistical findings. Begin the webpage.
+- Renyi: sentiment analysis method 2 (pattern), research subquestion 3
 
-Week 5: Cleaning the repository and wrapping up the data story webpage, host cohesive and interactive visualisations to display our outcome.
+- Alexandre: sentiment analysis method 1 (word lexicon), research subquestion 4
 
-## Questions for TA
-Should we select one sentiment scoring method or consistently compare the methods through all the analyses?
+- Brando: sentiment analysis method 5 (RoBERTa), research subquestion 5
 
