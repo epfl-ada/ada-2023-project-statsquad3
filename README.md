@@ -45,7 +45,7 @@ There are no direct additional datasets. The only external datasets we use are t
 
 ## Organisation and contribution of each member:
 
-In general, we split the tasks among the different research subquestions sentiment analysis methods. Everyone contributed to the visualizations and descriptions of their own sections in the data story website, and overall everyone contributed to delineating a story out of our individual findings to make it a smooth story.
+In general, we split the tasks among the different research subquestions and sentiment analysis methods. Everyone contributed to the visualizations and descriptions of their own sections in the data story website, and overall everyone contributed to delineating a story out of our individual findings to make it a smooth story.
 
 - Minh: sentiment analysis method 3 (VADER), research subquestion 5
 
